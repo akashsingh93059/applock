@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="#0A0A0F">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:padding="16dp">
+
+        <TextView android:id="@+id/tvForestTitle"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Your forest is empty" android:textColor="#FFFFFF"
+            android:textSize="22sp" android:textStyle="bold" android:gravity="center"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView android:id="@+id/tvForestStats"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:textColor="#8888AA" android:textSize="13sp" android:gravity="center"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Tree Grid -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:background="#16161F"
+            android:padding="16dp" android:layout_marginBottom="12dp">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="YOUR FOREST" android:textColor="#5A5A78"
+                android:textSize="11sp" android:textStyle="bold" android:layout_marginBottom="12dp"/>
+            <GridLayout android:id="@+id/gridForest"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:columnCount="7"/>
+        </LinearLayout>
+
+        <!-- Next tree progress -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:background="#16161F"
+            android:padding="16dp" android:layout_marginBottom="12dp">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="NEXT TREE" android:textColor="#5A5A78"
+                android:textSize="11sp" android:textStyle="bold" android:layout_marginBottom="8dp"/>
+            <ProgressBar android:id="@+id/pbNextTree"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent" android:layout_height="12dp"
+                android:progressTint="#66BB6A" android:progressBackgroundTint="#1E2E1E"
+                android:progress="0" android:layout_marginBottom="8dp"/>
+            <TextView android:id="@+id/tvNextTreeLabel"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textColor="#66BB6A" android:textSize="13sp"/>
+        </LinearLayout>
+
+        <!-- Milestone Badges -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:background="#16161F"
+            android:padding="16dp" android:layout_marginBottom="12dp">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="MILESTONES" android:textColor="#5A5A78"
+                android:textSize="11sp" android:textStyle="bold" android:layout_marginBottom="12dp"/>
+            <LinearLayout android:id="@+id/llMilestones"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:flexDirection="row"
+                android:flexWrap="wrap"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:background="#0A0A0F">
+
+    <ScrollView android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="1">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:padding="16dp">
+
+            <!-- Time picker card -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:background="#16161F"
+                android:padding="16dp" android:layout_marginBottom="12dp">
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="SET TIME" android:textColor="#5A5A78"
+                    android:textSize="11sp" android:textStyle="bold" android:layout_marginBottom="8dp"/>
+
+                <TimePicker android:id="@+id/tpAlarm" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:timePickerMode="spinner"/>
+
+                <EditText android:id="@+id/etAlarmLabel"
+                    android:layout_width="match_parent" android:layout_height="48dp"
+                    android:hint="Label (e.g. Wake up, Morning run…)"
+                    android:textColor="#FFFFFF" android:textColorHint="#555570"
+                    android:background="#0D0D1A" android:paddingHorizontal="12dp"
+                    android:textSize="14sp" android:layout_marginTop="8dp"
+                    android:inputType="text" android:imeOptions="actionDone"/>
+            </LinearLayout>
+
+            <!-- Tone picker card -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:background="#16161F"
+                android:padding="16dp" android:layout_marginBottom="12dp">
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="ALARM SOUND" android:textColor="#5A5A78"
+                    android:textSize="11sp" android:textStyle="bold" android:layout_marginBottom="8dp"/>
+
+                <TextView android:id="@+id/tvSelectedTone"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="🎵 Default alarm" android:textColor="#6BFFC8"
+                    android:textSize="14sp" android:layout_marginBottom="10dp"/>
+
+                <Button android:id="@+id/btnPickTone"
+                    android:layout_width="match_parent" android:layout_height="44dp"
+                    android:text="🎵 Choose Sound / Music"
+                    android:textColor="#FFFFFF" android:textSize="14sp"
+                    android:backgroundTint="#1E2E3A"/>
+            </LinearLayout>
+
+            <Button android:id="@+id/btnSetAlarm"
+                android:layout_width="match_parent" android:layout_height="52dp"
+                android:text="⏰ Set Alarm"
+                android:textColor="#FFFFFF" android:textSize="15sp" android:textStyle="bold"
+                android:backgroundTint="#7C6BFF" android:layout_marginBottom="16dp"/>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="UPCOMING ALARMS  (long press to delete)"
+                android:textColor="#5A5A78" android:textSize="11sp"
+                android:textStyle="bold" android:layout_marginBottom="8dp"/>
+
+            <TextView android:id="@+id/tvNoAlarms"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="No alarms set yet."
+                android:textColor="#555570" android:textSize="14sp" android:gravity="center"
+                android:padding="20dp" android:visibility="visible"/>
+
+            <ListView android:id="@+id/lvAlarms"
+                android:layout_width="match_parent" android:layout_height="320dp"
+                android:divider="#1E1E2E" android:dividerHeight="1dp"
+                android:scrollbars="none"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

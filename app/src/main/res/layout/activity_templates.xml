@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:background="#0A0A0F">
+
+    <Button android:id="@+id/btnNewTemplate"
+        android:layout_width="match_parent" android:layout_height="52dp"
+        android:text="＋ Create New Template"
+        android:textColor="#FFFFFF" android:textSize="15sp" android:textStyle="bold"
+        android:backgroundTint="#7C6BFF" android:layout_margin="16dp"/>
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="  SAVED TEMPLATES" android:textColor="#5A5A78"
+        android:textSize="11sp" android:textStyle="bold" android:letterSpacing="0.1"
+        android:layout_marginBottom="8dp" android:layout_marginStart="16dp"/>
+
+    <ScrollView android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="1">
+        <LinearLayout android:id="@+id/llTemplates"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:padding="16dp"/>
+    </ScrollView>
+</LinearLayout>

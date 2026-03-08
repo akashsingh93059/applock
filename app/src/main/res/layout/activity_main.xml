@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:background="#0A0A0F">
+
+    <!-- Header -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="horizontal" android:gravity="center_vertical"
+        android:padding="12dp" android:background="@drawable/bg_gradient_main">
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:text="FocusLock"
+            android:textSize="20sp" android:textStyle="bold" android:textColor="#7C6BFF"/>
+        <TextView android:id="@+id/tvFocusScore"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="⭐ Score" android:textColor="#FFD700" android:textSize="12sp"
+            android:textStyle="bold" android:background="#1E1E2E"
+            android:paddingHorizontal="10dp" android:paddingVertical="5dp"
+            android:layout_marginEnd="6dp"/>
+        <TextView android:id="@+id/tvTreeBadge"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="🌳 0" android:textColor="#66BB6A" android:textSize="13sp"
+            android:textStyle="bold" android:background="#1E1E2E"
+            android:paddingHorizontal="10dp" android:paddingVertical="5dp"
+            android:layout_marginEnd="6dp"/>
+        <TextView android:id="@+id/tvCoinBadge"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="🪙 0" android:textColor="#FFD700" android:textSize="13sp"
+            android:textStyle="bold" android:background="#1E1E2E"
+            android:paddingHorizontal="10dp" android:paddingVertical="5dp"
+            android:layout_marginEnd="6dp"/>
+        <TextView android:id="@+id/tvStreakBadge"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="🔥 0" android:textColor="#FFFFFF" android:textSize="13sp"
+            android:textStyle="bold" android:background="#1E1E2E"
+            android:paddingHorizontal="10dp" android:paddingVertical="5dp"/>
+    </LinearLayout>
+
+    <!-- Tab Bar -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="48dp"
+        android:orientation="horizontal" android:background="#111118">
+        <LinearLayout android:id="@+id/tabTimer" android:layout_width="0dp"
+            android:layout_height="match_parent" android:layout_weight="1"
+            android:gravity="center" android:orientation="vertical" android:alpha="1.0">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="⏱" android:textSize="15sp"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Timer" android:textSize="9sp" android:textColor="#AAAACC"/>
+        </LinearLayout>
+        <LinearLayout android:id="@+id/tabSchedule" android:layout_width="0dp"
+            android:layout_height="match_parent" android:layout_weight="1"
+            android:gravity="center" android:orientation="vertical" android:alpha="0.5">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="📅" android:textSize="15sp"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Schedule" android:textSize="9sp" android:textColor="#AAAACC"/>
+        </LinearLayout>
+        <LinearLayout android:id="@+id/tabApps" android:layout_width="0dp"
+            android:layout_height="match_parent" android:layout_weight="1"
+            android:gravity="center" android:orientation="vertical" android:alpha="0.5">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="📵" android:textSize="15sp"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Apps" android:textSize="9sp" android:textColor="#AAAACC"/>
+        </LinearLayout>
+        <LinearLayout android:id="@+id/tabAlarm" android:layout_width="0dp"
+            android:layout_height="match_parent" android:layout_weight="1"
+            android:gravity="center" android:orientation="vertical" android:alpha="0.5">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="⏰" android:textSize="15sp"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Alarm" android:textSize="9sp" android:textColor="#AAAACC"/>
+        </LinearLayout>
+        <LinearLayout android:id="@+id/tabStats" android:layout_width="0dp"
+            android:layout_height="match_parent" android:layout_weight="1"
+            android:gravity="center" android:orientation="vertical" android:alpha="0.5">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="📊" android:textSize="15sp"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Stats" android:textSize="9sp" android:textColor="#AAAACC"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Pages Container -->
+    <FrameLayout android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <!-- PAGE: Timer -->
+        <ScrollView android:id="@+id/pageTimer" android:layout_width="match_parent"
+            android:layout_height="match_parent" android:visibility="gone">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:padding="14dp">
+
+                <!-- Timer display -->
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:gravity="center"
+                    android:background="@drawable/bg_card" android:padding="24dp" android:layout_marginBottom="10dp">
+                    <TextView android:id="@+id/tvTimerStatus"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Ready to focus" android:textColor="#7C6BFF"
+                        android:textSize="12sp" android:textStyle="bold" android:layout_marginBottom="6dp"/>
+                    <TextView android:id="@+id/tvTimerClock"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="25:00" android:textSize="68sp" android:textStyle="bold"
+                        android:textColor="#FFFFFF" android:fontFamily="monospace" android:layout_marginBottom="4dp"/>
+                    <TextView android:id="@+id/tvTodayProgress"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Today: 0m" android:textColor="#8888AA" android:textSize="12sp"
+                        android:layout_marginBottom="16dp"/>
+                    <Button android:id="@+id/btnStartStop"
+                        android:layout_width="220dp" android:layout_height="52dp"
+                        android:text="▶  START FOCUS" android:textColor="#FFFFFF"
+                        android:textSize="15sp" android:textStyle="bold"
+                        android:backgroundTint="@color/purple_500"/>
+                </LinearLayout>
+
+                <!-- Duration -->
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:background="@drawable/bg_card"
+                    android:padding="14dp" android:layout_marginBottom="10dp">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal" android:gravity="center_vertical">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1" android:text="DURATION"
+                            android:textColor="#5A5A78" android:textSize="11sp" android:textStyle="bold"/>
+                        <TextView android:id="@+id/tvDurationVal"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="25 min" android:textColor="#7C6BFF"
+                            android:textSize="16sp" android:textStyle="bold"/>
+                    </LinearLayout>
+                    <SeekBar android:id="@+id/seekDuration"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:progressTint="#7C6BFF" android:thumbTint="#7C6BFF"
+                        android:layout_marginTop="8dp"/>
+                </LinearLayout>
+
+                <!-- Templates + Security -->
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:background="@drawable/bg_card"
+                    android:padding="14dp" android:layout_marginBottom="10dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="QUICK START" android:textColor="#5A5A78"
+                        android:textSize="11sp" android:textStyle="bold" android:layout_marginBottom="10dp"/>
+                    <Button android:id="@+id/btnTemplates"
+                        android:layout_width="match_parent" android:layout_height="44dp"
+                        android:text="📋 Session Templates"
+                        android:textColor="#FFFFFF" android:textSize="14sp"
+                        android:backgroundTint="#1E1E38"/>
+                </LinearLayout>
+
+                <!-- Security -->
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:background="@drawable/bg_card"
+                    android:padding="14dp" android:layout_marginBottom="10dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="SECURITY" android:textColor="#5A5A78"
+                        android:textSize="11sp" android:textStyle="bold" android:layout_marginBottom="10dp"/>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="10dp">
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="Auto-break reminders" android:textColor="#FFFFFF" android:textSize="14sp"/>
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="Remind to take breaks" android:textColor="#5A5A78" android:textSize="12sp"/>
+                        </LinearLayout>
+                        <Switch android:id="@+id/swAutoBreak"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:checked="true" android:thumbTint="#7C6BFF" android:trackTint="#2A2A3A"/>
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal" android:gravity="center_vertical">
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="Uninstall protection" android:textColor="#FFFFFF" android:textSize="14sp"/>
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="Can't delete app during focus" android:textColor="#5A5A78" android:textSize="12sp"/>
+                        </LinearLayout>
+                        <Switch android:id="@+id/swProtect"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:thumbTint="#7C6BFF" android:trackTint="#2A2A3A"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- PAGE: Schedule -->
+        <ScrollView android:id="@+id/pageSchedule" android:layout_width="match_parent"
+            android:layout_height="match_parent" android:visibility="gone">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:padding="14dp">
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:background="#16161F" android:padding="14dp"
+                    android:layout_marginBottom="10dp">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal" android:gravity="center_vertical">
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="Schedule Blocking" android:textColor="#FFFFFF"
+                                android:textSize="16sp" android:textStyle="bold"/>
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="Auto-block apps during set hours"
+                                android:textColor="#5A5A78" android:textSize="13sp"/>
+                        </LinearLayout>
+                        <Switch android:id="@+id/swScheduleEnable"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:thumbTint="#7C6BFF" android:trackTint="#2A2A3A"/>
+                    </LinearLayout>
+                    <TextView android:id="@+id/tvScheduleStatus"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:text="Schedule blocking is OFF" android:textColor="#7C6BFF"
+                        android:textSize="13sp" android:textStyle="bold"
+                        android:background="#0D0D1A" android:padding="12dp" android:layout_marginTop="10dp"/>
+                </LinearLayout>
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:background="@drawable/bg_card"
+                    android:padding="14dp" android:layout_marginBottom="10dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="BLOCK FROM" android:textColor="#5A5A78"
+                        android:textSize="11sp" android:textStyle="bold" android:layout_marginBottom="4dp"/>
+                    <TimePicker android:id="@+id/tpStart" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:timePickerMode="spinner"/>
+                    <View android:layout_width="match_parent" android:layout_height="1dp"
+                        android:background="#252535" android:layout_marginVertical="10dp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="BLOCK UNTIL" android:textColor="#5A5A78"
+                        android:textSize="11sp" android:textStyle="bold" android:layout_marginBottom="4dp"/>
+                    <TimePicker android:id="@+id/tpEnd" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:timePickerMode="spinner"/>
+                </LinearLayout>
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:background="@drawable/bg_card"
+                    android:padding="14dp" android:layout_marginBottom="10dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="ACTIVE DAYS" android:textColor="#5A5A78"
+                        android:textSize="11sp" android:textStyle="bold" android:layout_marginBottom="10dp"/>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <CheckBox android:id="@+id/cbMon" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Mon" android:textColor="#FFFFFF" android:textSize="12sp" android:buttonTint="#7C6BFF" android:checked="true"/>
+                        <CheckBox android:id="@+id/cbTue" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Tue" android:textColor="#FFFFFF" android:textSize="12sp" android:buttonTint="#7C6BFF" android:checked="true"/>
+                        <CheckBox android:id="@+id/cbWed" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Wed" android:textColor="#FFFFFF" android:textSize="12sp" android:buttonTint="#7C6BFF" android:checked="true"/>
+                        <CheckBox android:id="@+id/cbThu" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Thu" android:textColor="#FFFFFF" android:textSize="12sp" android:buttonTint="#7C6BFF" android:checked="true"/>
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal" android:layout_marginTop="6dp">
+                        <CheckBox android:id="@+id/cbFri" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Fri" android:textColor="#FFFFFF" android:textSize="12sp" android:buttonTint="#7C6BFF" android:checked="true"/>
+                        <CheckBox android:id="@+id/cbSat" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Sat" android:textColor="#FFFFFF" android:textSize="12sp" android:buttonTint="#7C6BFF"/>
+                        <CheckBox android:id="@+id/cbSun" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Sun" android:textColor="#FFFFFF" android:textSize="12sp" android:buttonTint="#7C6BFF"/>
+                        <View android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- PAGE: Apps -->
+        <LinearLayout android:id="@+id/pageApps" android:layout_width="match_parent"
+            android:layout_height="match_parent" android:orientation="vertical"
+            android:padding="14dp" android:visibility="gone">
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="Select which apps get blocked during focus sessions. All installed apps are shown."
+                android:textColor="#8888AA" android:textSize="13sp" android:lineSpacingMultiplier="1.4"
+                android:layout_marginBottom="14dp"/>
+            <TextView android:id="@+id/tvBlockedCount"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="No apps selected yet" android:textColor="#7C6BFF"
+                android:textSize="14sp" android:textStyle="bold"
+                android:background="@drawable/bg_card" android:padding="12dp" android:layout_marginBottom="10dp"/>
+            <Button android:id="@+id/btnPickApps"
+                android:layout_width="match_parent" android:layout_height="52dp"
+                android:text="📵 Select apps to block"
+                android:textColor="#FFFFFF" android:textSize="15sp" android:textStyle="bold"
+                android:backgroundTint="#7C6BFF"/>
+        </LinearLayout>
+
+        <!-- PAGE: Alarm -->
+        <LinearLayout android:id="@+id/pageAlarm" android:layout_width="match_parent"
+            android:layout_height="match_parent" android:orientation="vertical"
+            android:padding="14dp" android:visibility="gone">
+            <Button android:id="@+id/btnOpenAlarm"
+                android:layout_width="match_parent" android:layout_height="52dp"
+                android:text="⏰ Manage Alarms &amp; Sounds"
+                android:textColor="#FFFFFF" android:textSize="15sp" android:textStyle="bold"
+                android:backgroundTint="#7C6BFF" android:layout_marginBottom="12dp"/>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:background="@drawable/bg_card" android:padding="14dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="ALARM FEATURES" android:textColor="#5A5A78"
+                    android:textSize="11sp" android:textStyle="bold" android:layout_marginBottom="8dp"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="⏰  Set multiple alarms for wake-up or study time\n🎵  Choose system ringtone or your own music file\n▶  Preview any alarm sound before saving\n🗑  Long-press an alarm to delete it"
+                    android:textColor="#AAAACC" android:textSize="13sp" android:lineSpacingMultiplier="1.6"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- PAGE: Stats -->
+        <ScrollView android:id="@+id/pageStats" android:layout_width="match_parent"
+            android:layout_height="match_parent" android:visibility="gone">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:padding="14dp">
+
+                <TextView android:id="@+id/tvQuickStats"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="No data yet" android:textColor="#FFFFFF"
+                    android:textSize="15sp" android:lineSpacingMultiplier="1.8"
+                    android:background="@drawable/bg_card" android:padding="18dp"
+                    android:layout_marginBottom="10dp" android:fontFamily="monospace"/>
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:layout_marginBottom="10dp">
+                    <Button android:id="@+id/btnViewStats"
+                        android:layout_width="0dp" android:layout_height="50dp" android:layout_weight="1"
+                        android:text="📊 Full Stats" android:textColor="#FFFFFF" android:textSize="13sp"
+                        android:backgroundTint="#7C6BFF" android:layout_marginEnd="6dp"/>
+                    <Button android:id="@+id/btnViewScore"
+                        android:layout_width="0dp" android:layout_height="50dp" android:layout_weight="1"
+                        android:text="⭐ Focus Score" android:textColor="#FFFFFF" android:textSize="13sp"
+                        android:backgroundTint="#2A1E3A" android:layout_marginEnd="6dp"/>
+                    <Button android:id="@+id/btnViewForest"
+                        android:layout_width="0dp" android:layout_height="50dp" android:layout_weight="1"
+                        android:text="🌳 Forest" android:textColor="#FFFFFF" android:textSize="13sp"
+                        android:backgroundTint="#1A2A1A"/>
+                </LinearLayout>
+
+                <Button android:id="@+id/btnOpenTemplates2"
+                    android:layout_width="match_parent" android:layout_height="50dp"
+                    android:text="📋 Session Templates"
+                    android:textColor="#FFFFFF" android:textSize="14sp"
+                    android:backgroundTint="#1E1E38"/>
+            </LinearLayout>
+        </ScrollView>
+
+    </FrameLayout>
+
+    <!-- Notes Section at Bottom -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:background="#16161F"
+        android:paddingHorizontal="14dp" android:paddingTop="8dp" android:paddingBottom="10dp">
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:layout_marginBottom="4dp">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:text="📝 MY NOTE"
+                android:textColor="#5A5A78" android:textSize="10sp"
+                android:textStyle="bold" android:letterSpacing="0.1"/>
+            <TextView android:id="@+id/btnEditNote"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="✏️" android:textSize="17sp" android:padding="4dp"/>
+        </LinearLayout>
+
+        <TextView android:id="@+id/tvNote"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Tap ✏️ to add a note, quote, or reminder…"
+            android:textColor="#8888AA" android:textSize="13sp"
+            android:lineSpacingMultiplier="1.4" android:minLines="1"/>
+
+        <EditText android:id="@+id/etNote"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:hint="Write your note here…" android:textColor="#FFFFFF"
+            android:textColorHint="#555570" android:background="#0D0D1A"
+            android:padding="8dp" android:textSize="13sp"
+            android:inputType="textMultiLine|textCapSentences"
+            android:minLines="2" android:maxLines="4" android:visibility="gone"
+            android:layout_marginTop="4dp"/>
+
+        <LinearLayout android:id="@+id/llNoteBtns"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginTop="6dp" android:visibility="gone">
+            <Button android:id="@+id/btnSaveNote"
+                android:layout_width="0dp" android:layout_height="34dp" android:layout_weight="1"
+                android:text="Save" android:textColor="#FFFFFF" android:textSize="13sp"
+                android:backgroundTint="#7C6BFF" android:layout_marginEnd="8dp"/>
+            <Button android:id="@+id/btnCancelNote"
+                android:layout_width="0dp" android:layout_height="34dp" android:layout_weight="1"
+                android:text="Cancel" android:textColor="#FFFFFF" android:textSize="13sp"
+                android:backgroundTint="#333344"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
